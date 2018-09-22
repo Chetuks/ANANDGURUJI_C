@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+    android:id="@+id/menu_settings"
+    android:title="Settings" />
+  <item
+    android:id="@+id/menu_alarm"
+    android:title="Set Alarm" />
+  <item
+      android:id="@+id/menu_tone"
+      android:title="Show Tones"
+      android:visible="false"/>
+  <item
+      android:id="@+id/near_me"
+      android:title="Near me"
+      android:visible="false"/>
+  <item
+      android:id="@+id/comments_likes"
+      android:title="Likes and Comments" />
+</menu>
+

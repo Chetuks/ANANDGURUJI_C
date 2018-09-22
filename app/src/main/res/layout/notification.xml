@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:padding="4dip">
+
+    <TextView
+        android:id="@+id/alarm_title_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_semibold"
+        android:gravity="center"
+        android:padding="8dip"
+        android:textColor="@color/blue"
+        android:textSize="32dip"
+        android:textStyle="bold"
+        android:text="Mp3 name"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/new_logo" />
+
+
+    <Button
+        android:id="@+id/dismiss_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_orange_dark"
+        android:fontFamily="@font/open_sans_semibold"
+        android:onClick="onDismissClick"
+        android:text="Dismiss"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>
+

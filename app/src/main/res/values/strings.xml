@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Dr Anand Guruji</string>
+    <string name="toolbarTitle">Dr Anand Guruji</string>
+    <string name="btnRegistrationText">Registration</string>
+    <string name="usernameMandatoryText">Name is mandatory</string>
+    <string name="cityMandatoryText">City/Village name is mandatory</string>
+    <string name="phoneMandatoryText">phone number is mandatory</string>
+    <string name="no_internet">No Internet</string>
+    <string name="universalUsername">test@liferay.com</string>
+    <string name="universalPassword">test</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="enter_your_details">Enter Your Details</string>
+    <string name="name">Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="place">Place</string>
+    <string name="NO_NETWORK">NETWORK NOT AVAILABLE</string>
+    <string name="MAINURL">http://.org/api</string>
+    <string name="client_s_logo_place_holder">CLIENT\'S LOGO PLACE HOLDER</string>
+    <string name="replies">Replies</string>
+    <string name="comments">Comments</string>
+
+
+    <string-array name="occurence">
+        <item>Once</item>
+        <item>Weekly</item>
+    </string-array>
+
+
+    <string-array name="pref_alarm_play_time_entries">
+        <item>10 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+    </string-array>
+
+    <string-array name="pref_alarm_play_time_values">
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>180</item>
+        <item>300</item>
+    </string-array>
+</resources>
