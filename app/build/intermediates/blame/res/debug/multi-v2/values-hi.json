@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\ANANDGURUJI_CODE\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hi\\values-hi.xml",
+            "outputFile": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hi\\values-hi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-11.8.0.aar\\bc1cca68d892cef816405011b390c522\\res\\values-hi\\values.xml",

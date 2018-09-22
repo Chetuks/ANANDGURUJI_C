@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\ANANDGURUJI_CODE\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
+            "outputFile": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nl\\values-nl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-11.8.0.aar\\0c2450b1fa3469e9d5d34eedde64379b\\res\\values-nl\\values.xml",

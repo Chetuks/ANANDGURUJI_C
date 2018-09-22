@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\ANANDGURUJI_CODE\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my-rMM\\values-my-rMM.xml",
+            "outputFile": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my-rMM\\values-my-rMM.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\fe07f9daaea434023c53db1d09312513\\res\\values-my-rMM\\values-my-rMM.xml",

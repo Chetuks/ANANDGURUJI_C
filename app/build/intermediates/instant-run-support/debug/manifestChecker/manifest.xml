@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ananada.addme.neutrinos.anandaguruji"
+    package="com.ananada.addme.neutrinos.intuc"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -39,10 +39,10 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="com.ananada.addme.neutrinos.anandaguruji.permission.C2D_MESSAGE"
+        android:name="com.ananada.addme.neutrinos.intuc.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.ananada.addme.neutrinos.anandaguruji.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.ananada.addme.neutrinos.intuc.permission.C2D_MESSAGE" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -54,12 +54,12 @@
         android:debuggable="true"
         android:icon="@mipmap/icon_app"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/icon_app"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.ananada.addme.neutrinos.anandaguruji.SplashScreen"
+            android:name="com.ananada.addme.neutrinos.intuc.SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,15 +68,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ananada.addme.neutrinos.anandaguruji.DashBoardActivity"
+            android:name="com.ananada.addme.neutrinos.intuc.DashBoardActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name="com.ananada.addme.neutrinos.anandaguruji.RegistrationActivity" />
-        <activity android:name="com.ananada.addme.neutrinos.anandaguruji.CommentsActivity" />
+        <activity android:name="com.ananada.addme.neutrinos.intuc.RegistrationActivity" />
+        <activity android:name="com.ananada.addme.neutrinos.intuc.CommentsActivity" />
 
         <service
-            android:name="com.ananada.addme.neutrinos.anandaguruji.PreferenceClass.IsPressedReceiver"
+            android:name="com.ananada.addme.neutrinos.intuc.PreferenceClass.IsPressedReceiver"
             android:enabled="true"
             android:exported="false" >
             <intent-filter>
@@ -86,29 +86,29 @@
         </service>
 
         <activity
-            android:name="com.ananada.addme.neutrinos.anandaguruji.EditAlarm"
+            android:name="com.ananada.addme.neutrinos.intuc.EditAlarm"
             android:label="Set alarm" />
         <activity
-            android:name="com.ananada.addme.neutrinos.anandaguruji.MainActivity"
+            android:name="com.ananada.addme.neutrinos.intuc.MainActivity"
             android:label="Alarm Tone" />
         <activity
-            android:name="com.ananada.addme.neutrinos.anandaguruji.AlarmNotification"
+            android:name="com.ananada.addme.neutrinos.intuc.AlarmNotification"
             android:label="Alarm notification" />
         <activity
-            android:name="com.ananada.addme.neutrinos.anandaguruji.PreferenceClass.Preferences"
+            android:name="com.ananada.addme.neutrinos.intuc.PreferenceClass.Preferences"
             android:label="Preferences" />
         <activity
-            android:name="com.ananada.addme.neutrinos.anandaguruji.About"
+            android:name="com.ananada.addme.neutrinos.intuc.About"
             android:label="About" />
         <activity
-            android:name="com.ananada.addme.neutrinos.anandaguruji.AlarmMe"
+            android:name="com.ananada.addme.neutrinos.intuc.AlarmMe"
             android:label="Alarm"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert" />
 
         <receiver
-            android:name="com.ananada.addme.neutrinos.anandaguruji.AlarmReceiver"
+            android:name="com.ananada.addme.neutrinos.intuc.AlarmReceiver"
             android:process=":remote" />
-        <receiver android:name="com.ananada.addme.neutrinos.anandaguruji.BootCompletedReceiver" >
+        <receiver android:name="com.ananada.addme.neutrinos.intuc.BootCompletedReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -117,14 +117,14 @@
         </receiver>
 
         <service
-            android:name="com.ananada.addme.neutrinos.anandaguruji.MyFirebaseInstanceIDService"
+            android:name="com.ananada.addme.neutrinos.intuc.MyFirebaseInstanceIDService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <service
-            android:name="com.ananada.addme.neutrinos.anandaguruji.MyFirebaseMessagingService"
+            android:name="com.ananada.addme.neutrinos.intuc.MyFirebaseMessagingService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -155,19 +155,19 @@
             android:name="com.google.android.gms.analytics.globalConfigResource"
             android:resource="@xml/app_tracker" />
 
-        <service android:name="com.ananada.addme.neutrinos.anandaguruji.fcm.MyFirebaseInstanceIDService" >
+        <service android:name="com.ananada.addme.neutrinos.intuc.fcm.MyFirebaseInstanceIDService" >
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="com.ananada.addme.neutrinos.anandaguruji.fcm.MyFirebaseMessagingService" >
+        <service android:name="com.ananada.addme.neutrinos.intuc.fcm.MyFirebaseMessagingService" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <activity android:name="com.ananada.addme.neutrinos.anandaguruji.NearMeListActivity" />
-        <activity android:name="com.ananada.addme.neutrinos.anandaguruji.LikesActivity" />
+        <activity android:name="com.ananada.addme.neutrinos.intuc.NearMeListActivity" />
+        <activity android:name="com.ananada.addme.neutrinos.intuc.LikesActivity" />
         <!--
              FirebaseMessagingService performs security checks at runtime,
              no need for explicit permissions despite exported="true"
@@ -199,7 +199,7 @@
             android:exported="true"
             android:noHistory="true" > <!-- optional, removes the previewActivity from the activity stack. -->
             <intent-filter>
-                <data android:scheme="tagmanager.c.com.ananada.addme.neutrinos.anandaguruji" />
+                <data android:scheme="tagmanager.c.com.ananada.addme.neutrinos.intuc" />
 
                 <action android:name="android.intent.action.VIEW" />
 
@@ -240,7 +240,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="com.ananada.addme.neutrinos.anandaguruji" />
+                <category android:name="com.ananada.addme.neutrinos.intuc" />
             </intent-filter>
         </receiver>
         <!--
@@ -275,7 +275,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.ananada.addme.neutrinos.anandaguruji.firebaseinitprovider"
+            android:authorities="com.ananada.addme.neutrinos.intuc.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
@@ -325,7 +325,7 @@
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.ananada.addme.neutrinos.anandaguruji.com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.ananada.addme.neutrinos.intuc.com.android.tools.ir.server.InstantRunContentProvider"
             android:multiprocess="true" />
     </application>
 

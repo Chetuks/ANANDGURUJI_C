@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\ANANDGURUJI_CODE\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rBR\\values-pt-rBR.xml",
+            "outputFile": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rBR\\values-pt-rBR.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.8.0.aar\\7a6a2c68d12e8eceae0bb7abd9217c74\\res\\values-pt-rBR\\values.xml",

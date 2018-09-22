@@ -59,7 +59,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/imageView"/>-->
-               <com.ananada.addme.neutrinos.anandaguruji.PreferenceClass.ZoomableImageView
+               <com.ananada.addme.neutrinos.intuc.PreferenceClass.ZoomableImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

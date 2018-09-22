@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\ANANDGURUJI_CODE\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
+            "outputFile": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-ads-11.8.0.aar\\c791e5f466323285f40f1b0b45a32d7a\\res\\values-ko\\values.xml",

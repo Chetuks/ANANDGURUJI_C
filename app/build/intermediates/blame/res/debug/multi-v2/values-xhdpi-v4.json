@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\ANANDGURUJI_CODE\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+            "outputFile": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
             "map": [
                 {
-                    "source": "D:\\ANANDGURUJI_CODE\\app\\src\\main\\res\\values-xhdpi\\dimens.xml",
+                    "source": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\src\\main\\res\\values-xhdpi\\dimens.xml",
                     "from": {
                         "startLines": "3,4,7,21,26,10,8,9,16,22,23,19,24,6,12,14,20,11,30,29,17,18,15,27,25,13,5",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "89,147,315,969,1194,457,362,408,741,1011,1058,881,1102,259,549,642,924,504,1328,1288,783,831,696,1238,1142,598,203",
+                        "startOffsets": "92,151,322,990,1220,467,370,417,757,1033,1081,900,1126,265,561,656,944,515,1358,1317,800,849,711,1265,1167,611,208",
                         "endColumns": "57,55,46,41,43,46,45,48,41,46,43,42,39,55,48,53,44,44,39,39,47,49,44,48,51,43,55",
-                        "endOffsets": "142,198,357,1006,1233,499,403,452,778,1053,1097,919,1137,310,593,691,964,544,1363,1323,826,876,736,1282,1189,637,254"
+                        "endOffsets": "145,202,364,1027,1259,509,411,461,794,1075,1120,938,1161,316,605,705,984,555,1393,1352,843,894,751,1309,1214,650,259"
                     },
                     "to": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28",

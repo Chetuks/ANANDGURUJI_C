@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:138617069356:android:6f4284a5161c99c1",
         "android_client_info": {
-          "package_name": "neutrinos.anandaguruji"
+          "package_name": "neutrinos.intuc"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "138617069356-ct23obl00avjlt9hhiadoc15r0efvktn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "neutrinos.anandaguruji",
+            "package_name": "neutrinos.intuc",
             "certificate_hash": "235d22f63e9b9ea8b645c69b0f3850f4c0bc6150"
           }
         },
@@ -98,7 +98,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:138617069356:android:8286e923a1273175",
         "android_client_info": {
-          "package_name": "com.ananada.addme.neutrinos.anandaguruji"
+          "package_name": "com.ananada.addme.neutrinos.intuc"
         }
       },
       "oauth_client": [
@@ -106,7 +106,7 @@
           "client_id": "138617069356-23450shv77dhsjrssl153afsfl4sdsp1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.ananada.addme.neutrinos.anandaguruji",
+            "package_name": "com.ananada.addme.neutrinos.intuc",
             "certificate_hash": "86dd7ae59f8fcbed564d9e30e2226664ff0ff0c7"
           }
         },

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ananada.addme.neutrinos.anandaguruji.NearMeListActivity">
+    tools:context="com.ananada.addme.neutrinos.intuc.NearMeListActivity">
 
     <ListView
         android:id="@+id/near_me_listview"
