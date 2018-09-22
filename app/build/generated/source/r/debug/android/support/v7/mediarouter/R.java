@@ -848,9 +848,9 @@ public final class R {
         public static final int topPanel = 0x7f090153;
         public static final int up = 0x7f090155;
         public static final int useLogo = 0x7f090157;
-        public static final int volume_item_container = 0x7f09015c;
-        public static final int withText = 0x7f09015e;
-        public static final int wrap_content = 0x7f090160;
+        public static final int volume_item_container = 0x7f09015e;
+        public static final int withText = 0x7f090160;
+        public static final int wrap_content = 0x7f090162;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;

@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.opengl.Visibility;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -72,17 +74,14 @@ public class EventListingAdapter extends BaseAdapter {
         pd = new ProgressDialog(context);
         pd.setMessage("Buffering video please wait...");
         pd.setCancelable(true);
-        pd.show();
-
+        //pd.show();
 
         Events events = new Events();
-
         View layoutView = convertView;
         Log.e("position-->", "getView" + position);
         if (layoutView == null) {
 
             vh = new Viewholder();
-
             assert inflater != null;
             layoutView = inflater.inflate(R.layout.activity_comments, viewGroup, false);
             vh.eventHeadingTitle = (TextView) layoutView.findViewById(R.id.event_heading_tittle);
@@ -93,7 +92,8 @@ public class EventListingAdapter extends BaseAdapter {
             vh.eventImage = (VideoView) layoutView.findViewById(R.id.event_image);
             vh.commentsLayout = (LinearLayout) layoutView.findViewById(R.id.comments);
             vh.likeincrement = (TextView) layoutView.findViewById(R.id.likeincrement);
-
+            vh.videodisplay = layoutView.findViewById(R.id.videodisplay);
+            vh.videoimage = layoutView.findViewById(R.id.videoimage);
 
             vh.eventImage.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
@@ -109,6 +109,24 @@ public class EventListingAdapter extends BaseAdapter {
                     intent.putExtra(EVENTBEAN, rowItems.get(position));
                     activity.startActivity(intent);
                     activity.finish();
+                }
+            });
+
+            vh.videodisplay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    vh.videoimage.setVisibility(View.GONE);
+                    vh.eventImage.setVisibility(View.VISIBLE);
+                   /* Thread timerThread = new Thread() {
+                        public void run() {
+                            try {
+                                sleep(2000);
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                            }
+                        }
+                    };
+                    timerThread.start();*/
                 }
             });
 
@@ -149,7 +167,6 @@ public class EventListingAdapter extends BaseAdapter {
         }
         return layoutView;
     }
-
 
     private void setContentToView(Viewholder vh, final int position) {
         MediaController mediaC;
@@ -253,5 +270,7 @@ public class EventListingAdapter extends BaseAdapter {
         LinearLayout eventContainerLayout;
         LinearLayout commentsLayout;
         TextView likeincrement;
+        LinearLayout videodisplay;
+        ImageView videoimage;
     }
 }

@@ -580,8 +580,8 @@ public final class R {
         public static final int notification_template_icon_low_bg = 0x7f07015f;
         public static final int notification_tile_bg = 0x7f070160;
         public static final int notify_panel_notification_icon_bg = 0x7f070161;
-        public static final int tooltip_frame_dark = 0x7f070194;
-        public static final int tooltip_frame_light = 0x7f070195;
+        public static final int tooltip_frame_dark = 0x7f070195;
+        public static final int tooltip_frame_light = 0x7f070196;
     }
     public static final class id {
         public static final int action0 = 0x7f090007;
@@ -682,7 +682,7 @@ public final class R {
         public static final int topPanel = 0x7f090153;
         public static final int uniform = 0x7f090154;
         public static final int up = 0x7f090155;
-        public static final int wrap_content = 0x7f090160;
+        public static final int wrap_content = 0x7f090162;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f0a0000;

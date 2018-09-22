@@ -2700,6 +2700,10 @@
         "source": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\src\\main\\res\\mipmap-xhdpi\\__ic_launcher.png"
     },
     {
+        "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\drawable_player.png.flat",
+        "source": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\src\\main\\res\\drawable\\player.png"
+    },
+    {
         "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_quantum_ic_art_track_grey600_48.png.flat",
         "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.8.0.aar\\7a6a2c68d12e8eceae0bb7abd9217c74\\res\\drawable-xhdpi-v4\\quantum_ic_art_track_grey600_48.png"
     },
