@@ -262,7 +262,7 @@ public class RegistrationActivity extends AppCompatActivity implements GoogleApi
 
         String url = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.device/save-and-update-users-details-remotely/username/"+userName.getText().toString()+"/mobile/"+mobileSpinner.getSelectedItem().toString()+phoneNumber.getText().toString()+"/placename/"+cityName.getText().toString()+
                 "/deviceaddress/"+deviceId+"/devicelocation/"+location+"/status/Activated/devicename/"+deviceName+"/device-type/"
-                +deviceType+"/apk-type/20826/token/"+firebaseTokenId+"/language/"+getSeletedLanguageId+"/gender/"+getSelectedGender+"/date-of-birth/"+date;
+                +deviceType+"/apk-type/20829/token/"+firebaseTokenId+"/language/"+getSeletedLanguageId+"/gender/"+getSelectedGender+"/date-of-birth/"+date;
         String convertedURL = url.replace(" ", "%20");
         Logger.logV("Location", " convertedURL " + convertedURL);
         StringRequest postRequest = new StringRequest(Request.Method.POST, convertedURL,

@@ -130,7 +130,7 @@ public class LikesActivity extends AppCompatActivity {
     }
 
     private void likestatus() {
-        String url="http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/"+getDeviceId()+"/appuniqueid/20826/uploadid/"+detailsEvent.getEvent_id()+"/-like/status/retrieve";
+        String url="http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/"+getDeviceId()+"/appuniqueid/20829/uploadid/"+detailsEvent.getEvent_id()+"/-like/status/retrieve";
         Log.v("theresultoflikestatus", "the result is" + url);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -168,7 +168,7 @@ public class LikesActivity extends AppCompatActivity {
 
 
     private void likeTrueapi(String macaddress,String uploadid,boolean liked,String status) {
-        String url="http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/"+macaddress+"/appuniqueid/20826/uploadid/"+uploadid+"/like/"+liked+"/status/"+status;
+        String url="http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/"+macaddress+"/appuniqueid/20829/uploadid/"+uploadid+"/like/"+liked+"/status/"+status;
         Log.v("the result of like", "the result is" + url);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {

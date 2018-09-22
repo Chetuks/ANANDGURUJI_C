@@ -5,31 +5,32 @@
     build-mode="COLD"
     density="xxhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.0.1"
-    timestamp="1537616985984"
+    timestamp="1537620669953"
     token="-2779732184348015820"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="3680" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="93" />
     <task
         name="verifier"
-        duration="0" />
+        duration="15" />
 
     <artifact
-        location="D:\Gitfolder\ANANDGURUJI_C\app\build\outputs\apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
+        location="D:\Gitfolder\ANANDGURUJI_C\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1537616758648"
+        timestamp="1537619228953"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\Gitfolder\ANANDGURUJI_C\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
@@ -70,11 +71,20 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1537616985984"
+        timestamp="1537619637857"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\Gitfolder\ANANDGURUJI_C\app\build\outputs\apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1537620669953"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\Gitfolder\ANANDGURUJI_C\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
     </build>
 
 </instant-run>

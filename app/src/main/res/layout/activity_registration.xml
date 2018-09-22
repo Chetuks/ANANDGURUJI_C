@@ -26,7 +26,7 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/new_logo" />
+                android:src="@drawable/intucimg" />
 
             <TextView
                 android:id="@+id/enterDetails"

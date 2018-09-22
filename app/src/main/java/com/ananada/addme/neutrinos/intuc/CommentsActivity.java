@@ -66,7 +66,7 @@ public class CommentsActivity extends AppCompatActivity {
         Logger.logD("jkgfhdgf", "" + upload);
       /*  String macaddress=likesActivity.getDeviceId();
         Logger.logD("macaddress",""+macaddress);*/
-        String url = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/" + deviceId + "/appuniqueid/20826/uploadid/" + upload + "/-like/status/retrieve";
+        String url = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/" + deviceId + "/appuniqueid/20829/uploadid/" + upload + "/-like/status/retrieve";
         Log.v("the result of like", "the result is" + url);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -166,7 +166,7 @@ public class CommentsActivity extends AppCompatActivity {
         }*/
 
 
-        String URL = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.comments/Generate-contents/macaddress/" + deviceId + "/appuniqueid/20826";
+        String URL = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.comments/Generate-contents/macaddress/" + deviceId + "/appuniqueid/20829";
         Log.v("Url", "generatecontents " + URL);
         StringRequest postRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {

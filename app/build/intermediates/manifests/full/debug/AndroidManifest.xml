@@ -54,8 +54,9 @@
         android:debuggable="true"
         android:icon="@mipmap/icon_app"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/intuclogo"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.ananada.addme.neutrinos.intuc.SplashScreen"

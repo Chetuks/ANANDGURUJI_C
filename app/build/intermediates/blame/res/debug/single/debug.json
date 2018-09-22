@@ -1068,6 +1068,10 @@
         "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\972133aac7d6430b356b71a54dd4ed82\\res\\layout\\notification_action.xml"
     },
     {
+        "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\drawable_intucimg.jpg.flat",
+        "source": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\src\\main\\res\\drawable\\intucimg.jpg"
+    },
+    {
         "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_plusone_standard_off_client.png.flat",
         "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-plus-11.8.0.aar\\6815e01f475e3f821668ef12e2fb275f\\res\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png"
     },
@@ -4540,16 +4544,16 @@
         "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\0bca38d3bc6af125f356091fc57c51e7\\res\\drawable-mdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
+        "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\drawable_intuclogo.jpg.flat",
+        "source": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\src\\main\\res\\drawable\\intuclogo.jpg"
+    },
+    {
         "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\layout_cast_help_text.xml.flat",
         "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.8.0.aar\\7a6a2c68d12e8eceae0bb7abd9217c74\\res\\layout\\cast_help_text.xml"
     },
     {
         "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\drawable_heart_on.png.flat",
         "source": "C:\\Users\\Chethan\\.gradle\\caches\\transforms-1\\files-1.1\\LikeButton-0.2.3.aar\\cd4306c2c69dabf350004dd9ad3d68bc\\res\\drawable\\heart_on.png"
-    },
-    {
-        "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\drawable_intuclogo.jpg.flat",
-        "source": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\src\\main\\res\\drawable\\intuclogo.jpg"
     },
     {
         "merged": "D:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon_app.png.flat",

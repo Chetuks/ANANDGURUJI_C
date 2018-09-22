@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">ಆನಂದ ಗುರೂಜಿ </string>
-    <string name="toolbarTitle">ಆನಂದ ಗುರೂಜಿ </string>
+    <string name="app_name">ಕಾಂಗ್ರೆಸ್</string>
+    <string name="toolbarTitle">ಕಾಂಗ್ರೆಸ್</string>
     <string name="btnRegistrationText">ನೋಂದಣಿ</string>
     <string name="usernameMandatoryText">ಹೆಸರು ಕಡ್ಡಾಯವಾಗಿದೆ </string>
     <string name="cityMandatoryText">ನಗರ/ ಗ್ರಾಮದ  ಕಡ್ಡಾಯವಾಗಿದೆ  </string>

@@ -456,11 +456,11 @@ public final class R {
         public static final int abc_textfield_search_material = 0x7f070052;
         public static final int heart_off = 0x7f0700a0;
         public static final int heart_on = 0x7f0700a1;
-        public static final int notification_template_icon_bg = 0x7f07015d;
-        public static final int star_off = 0x7f07018f;
-        public static final int star_on = 0x7f070190;
-        public static final int thumb_off = 0x7f070191;
-        public static final int thumb_on = 0x7f070192;
+        public static final int notification_template_icon_bg = 0x7f07015e;
+        public static final int star_off = 0x7f070190;
+        public static final int star_on = 0x7f070191;
+        public static final int thumb_off = 0x7f070192;
+        public static final int thumb_on = 0x7f070193;
     }
     public static final class id {
         public static final int action0 = 0x7f090007;
