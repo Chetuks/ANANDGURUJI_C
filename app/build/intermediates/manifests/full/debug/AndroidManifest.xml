@@ -56,6 +56,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/intuclogo"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.ananada.addme.neutrinos.intuc.SplashScreen"
@@ -66,11 +67,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.ananada.addme.neutrinos.intuc.DashBoardActivity"
+        <!--
+            <activity
+            android:name=".DashBoardActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        -->
         <activity android:name="com.ananada.addme.neutrinos.intuc.RegistrationActivity" />
         <activity android:name="com.ananada.addme.neutrinos.intuc.CommentsActivity" />
 
@@ -114,6 +117,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+
+        <activity android:name="com.ananada.addme.neutrinos.intuc.NewNearByActivity" />
+        <activity android:name="com.ananada.addme.neutrinos.intuc.NearbyActivity" />
 
         <service
             android:name="com.ananada.addme.neutrinos.intuc.MyFirebaseInstanceIDService"
@@ -167,6 +173,9 @@
 
         <activity android:name="com.ananada.addme.neutrinos.intuc.NearMeListActivity" />
         <activity android:name="com.ananada.addme.neutrinos.intuc.LikesActivity" />
+        <activity
+            android:name="com.ananada.addme.neutrinos.intuc.Main2Activity"
+            android:label="@string/title_activity_main2" />
         <!--
              FirebaseMessagingService performs security checks at runtime,
              no need for explicit permissions despite exported="true"
@@ -179,15 +188,15 @@
             </intent-filter>
         </service>
 
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="com.ananada.addme.neutrinos.intuc.com.squareup.picasso"
+            android:exported="false" />
+
         <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver" />
 
         <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService" />
         <service android:name="com.google.android.gms.cast.framework.ReconnectionService" />
-
-        <meta-data
-            android:name="android.support.VERSION"
-            android:value="26.1.0" />
-
         <service
             android:name="com.google.android.gms.tagmanager.TagManagerService"
             android:enabled="true"
@@ -317,10 +326,6 @@
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <meta-data
-            android:name="android.arch.lifecycle.VERSION"
-            android:value="27.0.0-SNAPSHOT" />
     </application>
 
 </manifest>

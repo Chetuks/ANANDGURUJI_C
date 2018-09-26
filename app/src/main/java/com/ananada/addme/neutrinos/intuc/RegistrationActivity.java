@@ -249,7 +249,6 @@ public class RegistrationActivity extends AppCompatActivity implements GoogleApi
                 Logger.logV("Location", " device Name " + deviceName);
                 Logger.logV("Location", " deviceType " + deviceType);
                 callRegistrationApi();
-
             }
         }
     }

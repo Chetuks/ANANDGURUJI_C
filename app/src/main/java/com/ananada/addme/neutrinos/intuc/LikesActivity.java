@@ -62,11 +62,14 @@ public class LikesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_likes);
         detailsEvent = (Events) getIntent().getSerializableExtra(EVENTBEAN);
-        Logger.logD("eventcheck",""+detailsEvent);
-        uploadid = detailsEvent.getEvent_id();
-        Logger.logD("uplllll",""+uploadid);
-        if (detailsEvent != null && !detailsEvent.getUrl().equals(""))
-            video_url = detailsEvent.getUrl();
+        //Logger.logD("eventcheck",""+detailsEvent);
+        if (detailsEvent.getEvent_id()!=null){
+            uploadid = detailsEvent.getEvent_id();
+            Logger.logD("uplllll",""+uploadid);
+            if (detailsEvent != null && !detailsEvent.getUrl().equals(""))
+                video_url = detailsEvent.getUrl();
+        }else
+            uploadid="";
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         sharedPrefManager = new SharedPrefManager(LikesActivity.this);
         video = (VideoView) findViewById(R.id.video_view);
@@ -375,7 +378,7 @@ public class LikesActivity extends AppCompatActivity {
         TextView likesCount = commentslistviewchildView.findViewById(R.id.comment_likes);
         commentmessage.setText(memberDetails.getComment());
         commentUserName.setText(memberDetails.getMember_name());
-        Picasso.with(this)
+        Picasso.get()
                 .load("isdgfrhsdgfhdf")
                 .placeholder(R.drawable.profile_image)
                 .error(R.drawable.profile_image)

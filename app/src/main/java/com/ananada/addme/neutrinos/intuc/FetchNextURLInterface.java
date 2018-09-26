@@ -5,5 +5,7 @@ package com.ananada.addme.neutrinos.intuc;
  */
 
 public interface FetchNextURLInterface {
+    void showText(String text);
+
     void onSuccessResonse(String downloadSuccessfulRespose, String fileType);
 }

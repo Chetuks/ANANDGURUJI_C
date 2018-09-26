@@ -45,11 +45,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+        <!--
+            <activity
             android:name=".DashBoardActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        -->
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".CommentsActivity" />
 
@@ -93,6 +95,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".NewNearByActivity" />
+        <activity android:name=".NearbyActivity" />
 
         <service
             android:name=".MyFirebaseInstanceIDService"
@@ -145,7 +150,10 @@
         </service>
 
         <activity android:name=".NearMeListActivity" />
-        <activity android:name=".LikesActivity"></activity>
+        <activity android:name=".LikesActivity" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2" />
     </application>
 
 </manifest>

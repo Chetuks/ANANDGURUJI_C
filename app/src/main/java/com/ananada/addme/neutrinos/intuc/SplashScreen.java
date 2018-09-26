@@ -23,7 +23,7 @@ public class SplashScreen extends AppCompatActivity {
                 } finally {
                     if (prefManager.getISLogged_IN())
                     {
-                        Intent intent = new Intent(SplashScreen.this, DashBoardActivity.class);
+                        Intent intent = new Intent(SplashScreen.this, Main2Activity.class);
                         intent.putExtra("callAPI", 1);
                         startActivity(intent);
                         finish();
