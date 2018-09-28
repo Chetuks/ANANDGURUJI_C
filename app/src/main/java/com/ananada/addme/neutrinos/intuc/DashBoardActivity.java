@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
@@ -60,6 +61,8 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -131,6 +134,13 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
     // public final static int REQUEST_LOCATION = 199;
     public final static int REQUEST_LOCATION = 199;
     LinearLayout count_layout;
+    LinearLayout comments_layout;
+    //int userID=26633;
+    int userid;
+    //String uploadid="41881";
+    int uploadid;
+    LikeButton like_image;
+    TextView like_count_text;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -161,6 +171,23 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
         contentViewCount = (TextView) root.findViewById(R.id.view_count);
         count_layout = root.findViewById(R.id.count_layout);
         count_layout.bringToFront();
+        comments_layout = root.findViewById(R.id.comments_layout);
+        like_count_text = root.findViewById(R.id.like_count_text);
+        like_image = root.findViewById(R.id.like_image);
+        //likestatus();
+        comments_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("userid", userid);
+                bundle.putInt("userid", urlsBeenList.get(0).getUploadid());
+                // bundle.putString("uploadid",uploadid);
+                bundle.putInt("uploadid", uploadid);
+                Intent intent = new Intent(getActivity(), CommentNew.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         //dashboard = (TextView) root.findViewById(R.id.activity_dash_board_id);
         activity = getActivity();
         context = getActivity();
@@ -174,7 +201,78 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
         filter = new IntentFilter("IsPressedReceiver");
         //reHitToServer();
         turnGPSOn();
+
         return root;
+    }
+
+    private void likeTrueapi(String macaddress, int uploadid, boolean liked, String status) {
+        String url = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/" + macaddress + "/appuniqueid/20829/uploadid/" + uploadid + "/like/" + liked + "/status/" + status;
+        Log.v("savelike", "result" + url);
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        // ProgressUtils.CancelProgress(progressDialog);
+                        try {
+                            Logger.logD("LikeResponsenew", "->" + response);
+                            //parceAndSetCommentAdapter(response);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        Log.v("the result of like", "the result is" + response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }
+        );
+        Volley.newRequestQueue(getActivity()).add(postRequest);
+    }
+
+    private void likestatus(int uploadid) {
+        String url = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/" + getDeviceId() + "/appuniqueid/20829/uploadid/" + uploadid + "/-like/status/retrieve";
+        Log.v("theresultoflikestatus", "the result is" + url);
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        // ProgressUtils.CancelProgress(progressDialog);
+                        try {
+                            Logger.logD("LikestatusResponse", "->" + response);
+                            JSONObject jsonObject = new JSONObject(response);
+                            Logger.logD("statusboolean", "" + jsonObject);
+                            Boolean status = jsonObject.getBoolean("Liked");
+                            int count = jsonObject.getInt("count");
+                            Logger.logD("checkcount", "" + count);
+                            like_count_text.setText(String.valueOf(count));
+                            Logger.logD("getjkshdjk", "" + status);
+                            if (status) {
+                                like_image.setLiked(true);
+
+                            } else {
+                                like_image.setLiked(false);
+
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        Log.v("the result of like", "the result is" + response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }
+        );
+        Volley.newRequestQueue(getActivity()).add(postRequest);
     }
 
     @Override
@@ -299,6 +397,8 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
             JSONArray jsonArray = object.getJSONArray("urls");
             JSONArray jsonArrayDeleted = object.getJSONArray("deletedurls");
             JSONArray jsonArrayAlaram = object.getJSONArray("alarm");
+            userid = object.getInt("uId");
+            Logger.logD("useridchecking", "" + userid);
             downloadAlaramToneFrmServer(jsonArrayAlaram);
             //getDeletedPath = deletUrlExist(jsonArrayDeleted);
             //callServerToDeletePath();
@@ -308,14 +408,14 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String fileType = jsonObject.getString("filetype");
                 String url = jsonObject.getString("url");
-                UrlsBeen urlsBeenTEmp = new UrlsBeen(fileType, url, jsonObject.getInt("view_count"), jsonObject.getString("filename"));
+                UrlsBeen urlsBeenTEmp = new UrlsBeen(fileType, url, jsonObject.getInt("view_count"), jsonObject.getString("filename"), jsonObject.getInt("uploadid"));
                 urlsBeenList.add(urlsBeenTEmp);
                 urlsBeenListMain = urlsBeenList;
                 Logger.logD("Size", "size if " + urlsBeenList.size());
                 Logger.logD("Size", "size if " + urlsBeenList.get(i).getUrl());
                 Logger.logD("Size", "size if " + urlsBeenList.get(i).getFiletype());
                 if (urlsBeenList.size() == sizeOfUrl) {
-                    displayInView();
+                    displayInView(urlsBeenList.get(i).getUploadid(), userid);
                     UrlsBeen urlsBeen = urlsBeenList.get(0);
                     if (urlsBeen != null) {
                         switch (urlsBeen.getFiletype()) {
@@ -324,11 +424,9 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
                                 break;
                             case "video":
                                 new ProgressBack().execute(urlsBeen.getUrl());
-
                                 break;
                             case "image":
                                 new ImageProgressBack().execute(urlsBeen.getUrl());
-
                                 break;
                         }
                     }
@@ -445,7 +543,7 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
         return deletedfileName;
     }
 
-    private void displayInView() {
+    private void displayInView(int uploadid, int userinsideid) {
         try {
             UrlsBeen urlsBeen = null;
             urlsBeen = getNextMedia();
@@ -458,8 +556,24 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
                     }
                     if (!isFirstFileAvailabble(urlsBeen).equals("false")) {
                         showImage(isFirstFileAvailabble(urlsBeen), 0, urlsBeen.getViewCount(), urlsBeen.getImagetype());
+                        likestatus(urlsBeen.getUploadid());
+                        final UrlsBeen finalUrlsBeen = urlsBeen;
+                        like_image.setOnLikeListener(new OnLikeListener() {
+                            @Override
+                            public void liked(LikeButton likeButton) {
+                                likeTrueapi(getDeviceId(), finalUrlsBeen.getUploadid(), true, "save");
+                                likestatus(finalUrlsBeen.getUploadid());
+                            }
+
+                            @Override
+                            public void unLiked(LikeButton likeButton) {
+                                likeTrueapi(getDeviceId(), finalUrlsBeen.getUploadid(), false, "save");
+                                likestatus(finalUrlsBeen.getUploadid());
+                            }
+                        });
                     } else {
                         showImage(urlsBeen.getUrl(), 0, urlsBeen.getViewCount(), urlsBeen.getImagetype());
+                        likestatus(urlsBeen.getUploadid());
                     }
                 }
                 if (fileType.equals("video")) {
@@ -469,8 +583,39 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
                     }
                     if (!isFirstFileAvailabble(urlsBeen).equals("false")) {
                         showVideo(isFirstFileAvailabble(urlsBeen), 0, urlsBeen.getViewCount(), urlsBeen.getImagetype());
+                        likestatus(urlsBeen.getUploadid());
+                        final UrlsBeen finalUrlsBeen1 = urlsBeen;
+                        like_image.setOnLikeListener(new OnLikeListener() {
+                            @Override
+                            public void liked(LikeButton likeButton) {
+                                likeTrueapi(getDeviceId(), finalUrlsBeen1.getUploadid(), true, "save");
+                                likestatus(finalUrlsBeen1.getUploadid());
+                            }
+
+                            @Override
+                            public void unLiked(LikeButton likeButton) {
+                                likeTrueapi(getDeviceId(), finalUrlsBeen1.getUploadid(), false, "save");
+                                likestatus(finalUrlsBeen1.getUploadid());
+                            }
+                        });
+
                     } else {
                         showVideo(urlsBeen.getUrl(), 0, urlsBeen.getViewCount(), urlsBeen.getImagetype());
+                        likestatus(urlsBeen.getUploadid());
+                        final UrlsBeen finalUrlsBeen2 = urlsBeen;
+                        like_image.setOnLikeListener(new OnLikeListener() {
+                            @Override
+                            public void liked(LikeButton likeButton) {
+                                likeTrueapi(getDeviceId(), finalUrlsBeen2.getUploadid(), true, "save");
+                                likestatus(finalUrlsBeen2.getUploadid());
+                            }
+
+                            @Override
+                            public void unLiked(LikeButton likeButton) {
+                                likeTrueapi(getDeviceId(), finalUrlsBeen2.getUploadid(), false, "save");
+                                likestatus(finalUrlsBeen2.getUploadid());
+                            }
+                        });
                     }
                 }
                 if (fileType.equals("audio")) {
@@ -494,7 +639,7 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
         } catch (Exception e) {
             e.printStackTrace();
             count = 0;
-            displayInView();
+            displayInView(uploadid, userinsideid);
           /* new Handler().postDelayed(
                    new Runnable() {
                        @Override
@@ -592,13 +737,14 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
         Glide.with(activity).load(url).asBitmap().into(imageView);
         contentViewCount.setText(String.valueOf(viewCount));
         callApiAndUpdateViewCount(getServerPath);
+        //likestatus();
         imageHandler = new Handler();
         imageRun = new Runnable() {
             @Override
             public void run() {
                 count++;
                 timeRemaining[0] = 10000;
-                displayInView();
+                displayInView(uploadid, userid);
             }
         };
         imageHandler.postDelayed(imageRun, timeRemaining[0]);
@@ -641,7 +787,7 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
             public void onCompletion(MediaPlayer mediaPlayer) {
                 isVideoPlaying = false;
                 count++;
-                displayInView();
+                displayInView(uploadid, userid);
             }
         });
         videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
@@ -694,7 +840,7 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
         Logger.logD("onSuccessResonse", "Interface calling.. " + downloadCount);
         Logger.logD("onSuccessResonse", "urlsBeenList " + urlsBeenList.size());
         if (downloadCount != 0)
-            filePathDownloadedList.add(new UrlsBeen(fileTypeTemp, downloadSuccessfulRespose, 0, ""));
+            filePathDownloadedList.add(new UrlsBeen(fileTypeTemp, downloadSuccessfulRespose, 0, "", 0));
 //        Logger.logD("onSuccessResonse","filePathDownloadedList "+filePathDownloadedList.get(downloadCount).getUrl());
        /* if (downloadCount==4){
             new Handler().postDelayed(
@@ -959,14 +1105,14 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
                     if (tempFile != null) {
                         Logger.logV(TAG, " offlineFile path" + tempFile.getPath());
                         if (tempFile.getPath().contains("jpg")) {
-                            urlsBeenList.add(new UrlsBeen("image", tempFile.getPath(), 0, ""));
+                            urlsBeenList.add(new UrlsBeen("image", tempFile.getPath(), 0, "", 0));
                         }
                         if (tempFile.getPath().contains("mp4")) {
-                            urlsBeenList.add(new UrlsBeen("video", tempFile.getPath(), 0, ""));
+                            urlsBeenList.add(new UrlsBeen("video", tempFile.getPath(), 0, "", 0));
                         }
                     }
                     if (i == (tempsortedByDate.length - 1)) {
-                        displayInView();
+                        displayInView(uploadid, userid);
                     }
                 }
             }
@@ -1182,7 +1328,7 @@ public class DashBoardActivity extends android.support.v4.app.Fragment implement
                     @Override
                     public void onResponse(String response) {
                         //count = 0;
-                        Logger.logV("Location", " Response " + response);
+                        Logger.logV("Dashboard", "Response" + response);
                         checkTheResponse(response);
                     }
                 },
