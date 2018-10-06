@@ -2,6 +2,7 @@ package com.ananada.addme.neutrinos.intuc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -10,9 +11,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
     private ActionBar toolbar;
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +46,30 @@ public class Main2Activity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.navigation_notifications:
-                    toolbar.setTitle("Cart");
+                    toolbar.setTitle("Notifications");
                     fragment = new NearbyActivity();
                     loadFragment(fragment);
-                   /* intent = new Intent(Main2Activity.this, NearbyActivity.class);
-                    startActivity(intent);*/
                     return true;
             }
             return false;
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+    }
 
     private void loadFragment(Fragment fragment) {
         // load fragment
@@ -61,5 +78,4 @@ public class Main2Activity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
 }
