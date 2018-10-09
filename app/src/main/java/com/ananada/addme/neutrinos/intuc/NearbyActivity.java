@@ -50,10 +50,9 @@ public class NearbyActivity extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-       // Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
+        // Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,14 +61,15 @@ public class NearbyActivity extends android.support.v4.app.Fragment {
         root = inflater.inflate(R.layout.activity_nearby, container, false);
         description = root.findViewById(R.id.headingnearby);
         erroetextnearby = root.findViewById(R.id.errortext_nearby);
+        description.setText("Notifications");
         //spinner = (ProgressBar) findViewById(R.id.progressBar1);
         //spinner.bringToFront();
-      getActivity(). getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+       /* getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         //spinner.setVisibility(View.VISIBLE);
         description.setText("Notifications");
         gpsTracker = new GPSTracker(getActivity());
-        callingNearbyAPI(setLocation(), getDeviceId());
+        callingNearbyAPI(setLocation(), getDeviceId());*/
         return root;
     }
 
@@ -103,7 +103,7 @@ public class NearbyActivity extends android.support.v4.app.Fragment {
 
     private void callingNearbyAPI(String setLocation, String deviceId) {
         String url = "http://216.98.9.235:8080/api/jsonws/addMe-portlet.useractivities/get-nearby-local-details/device-address/" + deviceId + "/appuniqueid/54752/latlong/" + setLocation + "/addme/addme/pageno/1/orgid/0";
-       // String url = "http://216.98.9.235:8080/api/jsonws/addMe-portlet.useractivities/get-nearby-local-details/device-address/" + deviceId + "/appuniqueid/54752/latlong/" + setLocation + "/addme/%22%22/pageno/1/orgid/0";
+        // String url = "http://216.98.9.235:8080/api/jsonws/addMe-portlet.useractivities/get-nearby-local-details/device-address/" + deviceId + "/appuniqueid/54752/latlong/" + setLocation + "/addme/%22%22/pageno/1/orgid/0";
         String convertedURL = url.replace(",", "%2C");
         Logger.logV("nearby", " callServerToSendParams " + convertedURL);
         StringRequest postRequest = new StringRequest(Request.Method.GET, convertedURL,
@@ -115,7 +115,7 @@ public class NearbyActivity extends android.support.v4.app.Fragment {
                             new Parseresponse(response).execute();
                             Logger.logD("responsellll", "" + response);
                             //spinner.setVisibility(View.GONE);
-                           getActivity(). getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -170,7 +170,7 @@ public class NearbyActivity extends android.support.v4.app.Fragment {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             //spinner.setVisibility(View.GONE);
-            LinearLayout nearbylayout = root.findViewById(R.id.inflator_layout);
+           // LinearLayout nearbylayout = root.findViewById(R.id.inflator_layout);
             //nearbylayout.removeAllViews();
             for (int j = 0; j < nearbyList.size(); j++) {
                 View imageChild = getLayoutInflater().inflate(R.layout.nearbyinflator, nearbylayout, false);
@@ -191,7 +191,7 @@ public class NearbyActivity extends android.support.v4.app.Fragment {
                     }
                 });*/
                 final int finalJ = j;
-                imageChild.setOnClickListener(new View.OnClickListener() {
+               /* imageChild.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Bundle bundle = new Bundle();
@@ -200,7 +200,7 @@ public class NearbyActivity extends android.support.v4.app.Fragment {
                         intent.putExtras(bundle);
                         startActivity(intent);
                     }
-                });
+                });*/
                 name.setText(nearbyList.get(j).getOrganizationname());
                 address.setText(nearbyList.get(j).getAddress());
                 Picasso.get()

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -22,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +31,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class BlankFragment extends android.support.v4.app.Fragment {
@@ -38,6 +41,7 @@ public class BlankFragment extends android.support.v4.app.Fragment {
     private EventListingFeed ceResultEvents;
     private EventListingAdapter eventAdapter;
     private static final String TAG = "EventPastEvents";
+    ImageView spinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,11 +54,15 @@ public class BlankFragment extends android.support.v4.app.Fragment {
         activity = getActivity();
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_blank, container, false);
+        spinner = root.findViewById(R.id.progressBar1);
+        spinner.bringToFront();
+        Glide.with(Objects.requireNonNull(getActivity()).getApplicationContext()).load(R.drawable.spinnernew).asGif().into(spinner);
+        spinner.setVisibility(View.VISIBLE);
         if (Utils.checkNetworkConnection(getActivity().getApplicationContext())) {
             deviceId = Utils.getDeviceId((Activity) activity);
             Logger.logD("devid", "dfg" + deviceId);
             callServerApi(getActivity());
-           // likeapi();
+            // likeapi();
         } else {
             Utils.displayToast(getActivity().getApplicationContext(), getResources().getString(R.string.NO_NETWORK));
         }
@@ -124,9 +132,8 @@ public class BlankFragment extends android.support.v4.app.Fragment {
             e.printStackTrace();
         }*/
 
-
         String URL = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.comments/Generate-contents/macaddress/" + deviceId + "/appuniqueid/20829";
-        Log.v("Url", "generatecontents " + URL);
+        Log.v("generatecontents", "api" + URL);
         StringRequest postRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
 
@@ -136,6 +143,7 @@ public class BlankFragment extends android.support.v4.app.Fragment {
                         try {
                             Logger.logD("responseGeneratecontents", "" + response);
                             setResults(response);
+                            spinner.setVisibility(View.GONE);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -173,7 +181,6 @@ public class BlankFragment extends android.support.v4.app.Fragment {
      */
     public void setResults(String results) throws Exception {
         Log.d(TAG, "EventPastEvents server response" + results);
-
         JSONObject jsonObject = null;
         try {
             jsonObject = new JSONObject(results);
@@ -189,6 +196,7 @@ public class BlankFragment extends android.support.v4.app.Fragment {
             e.printStackTrace();
         }
     }
+
     private void setDataToAdapter(List<Events> listEvents) {
         ListView eventsList = (ListView) root.findViewById(R.id.event_list);
         LinearLayout noEventLayout = (LinearLayout) root.findViewById(R.id.no_events);

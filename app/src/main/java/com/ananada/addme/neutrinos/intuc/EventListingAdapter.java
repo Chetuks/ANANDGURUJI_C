@@ -20,9 +20,11 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.ananada.addme.neutrinos.intuc.Model.Events;
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Objects;
 
 import static com.ananada.addme.neutrinos.intuc.LikesActivity.EVENTBEAN;
 
@@ -71,16 +73,15 @@ public class EventListingAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final Viewholder vh;
         final ProgressDialog pd;
-        pd = new ProgressDialog(context);
-        pd.setMessage("Buffering video please wait...");
-        pd.setCancelable(true);
+        // pd = new ProgressDialog(context);
+        //pd.setMessage("Buffering video please wait...");
+        // pd.setCancelable(true);
         //pd.show();
 
         Events events = new Events();
         View layoutView = convertView;
-        Log.e("position-->", "getView" + position);
+        // Log.e("position-->", "getView" + position);
         if (layoutView == null) {
-
             vh = new Viewholder();
             assert inflater != null;
             layoutView = inflater.inflate(R.layout.activity_comments, viewGroup, false);
@@ -89,17 +90,36 @@ public class EventListingAdapter extends BaseAdapter {
             vh.eventday = (TextView) layoutView.findViewById(R.id.event_day);
             vh.eventMonth = (TextView) layoutView.findViewById(R.id.event_month);
             vh.eventTime = (TextView) layoutView.findViewById(R.id.event_time);
-            vh.eventImage = (VideoView) layoutView.findViewById(R.id.event_image);
+            vh.eventImage = (VideoView) layoutView.findViewById(R.id.event_video);
             vh.commentsLayout = (LinearLayout) layoutView.findViewById(R.id.comments);
             vh.likeincrement = (TextView) layoutView.findViewById(R.id.likeincrement);
             vh.videodisplay = layoutView.findViewById(R.id.videodisplay);
             vh.videoimage = layoutView.findViewById(R.id.videoimage);
+            vh.imageview_all = layoutView.findViewById(R.id.imageview_all);
+            vh.progressBar1 = layoutView.findViewById(R.id.progressBar1);
+            vh.progressBar1.bringToFront();
+            Glide.with(Objects.requireNonNull(context).getApplicationContext()).load(R.drawable.spinnernew).asGif().into(vh.progressBar1);
+
+            vh.filetype = rowItems.get(position).getSname();
+
+            if (vh.filetype.equalsIgnoreCase("image")) {
+                vh.videoimage.setVisibility(View.GONE);
+                vh.eventImage.setVisibility(View.GONE);
+                vh.imageview_all.setVisibility(View.VISIBLE);
+                vh.progressBar1.setVisibility(View.GONE);
+            } else {
+                vh.videoimage.setVisibility(View.VISIBLE);
+                vh.eventImage.setVisibility(View.GONE);
+                vh.imageview_all.setVisibility(View.GONE);
+                vh.progressBar1.setVisibility(View.GONE);
+            }
 
             vh.eventImage.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
                     //close the progress dialog when buffering is done
-                    pd.dismiss();
+                    // pd.dismiss();
+                    vh.progressBar1.setVisibility(View.GONE);
                 }
             });
             vh.commentsLayout.setOnClickListener(new View.OnClickListener() {
@@ -115,23 +135,21 @@ public class EventListingAdapter extends BaseAdapter {
             vh.videodisplay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    vh.videoimage.setVisibility(View.GONE);
+                    MediaController mediaC;
+                    if (!vh.filetype.equalsIgnoreCase("image")) {
+                        vh.videoimage.setVisibility(View.GONE);
+                    }
                     vh.eventImage.setVisibility(View.VISIBLE);
-                   /* Thread timerThread = new Thread() {
-                        public void run() {
-                            try {
-                                sleep(2000);
-                            } catch (InterruptedException e) {
-                                Thread.currentThread().interrupt();
-                            }
-                        }
-                    };
-                    timerThread.start();*/
+                    vh.eventImage.start();
                 }
             });
 
             vh.eventContainerLayout = (LinearLayout) layoutView.findViewById(R.id.event_image_linear);
-            setContentToView(vh, position);
+            try {
+                setContentToView(vh, position);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             layoutView.setTag(vh);
             final View finalLayoutView = layoutView;
 
@@ -155,8 +173,6 @@ public class EventListingAdapter extends BaseAdapter {
                     }*/
                     Intent intent = new Intent(activity, LikesActivity.class);
                     intent.putExtra(EVENTBEAN, rowItems.get(position));
-                    //Logger.logD("nameurl",""+events.getEvent_name());
-
                     activity.startActivity(intent);
                     activity.finish();
                 }
@@ -171,44 +187,63 @@ public class EventListingAdapter extends BaseAdapter {
     private void setContentToView(Viewholder vh, final int position) {
         MediaController mediaC;
         vh.eventHeadingTitle.setText(rowItems.get(position).getEvent_name());
-        vh.likeincrement.setText(String.valueOf(rowItems.get(position).getLikes()));
-        Logger.logD("checklikee", "" + rowItems.get(position).getLikes());
-        switch (position) {
+        // vh.likeincrement.setText(String.valueOf(rowItems.get(position).getLikes()));
+        // Logger.logD("checklikee", "" + rowItems.get(position).getLikes());
+        if (vh.filetype.equalsIgnoreCase("image")) {
+            Picasso.get()
+                    .load(rowItems.get(position).getUrl())
+                    .fit()
+                    .error(R.drawable.ic_launcher)
+                    .into(vh.imageview_all);
+        } else {
+            vh.progressBar1.setVisibility(View.GONE);
+            String video_url = rowItems.get(position).getUrl();
+            //"http://file2.video9.in/english/movie/2014/x-men-_days_of_future_past/X-Men-%20Days%20of%20Future%20Past%20Trailer%20-%20[Webmusic.IN].3gp";
+            Uri uri = Uri.parse(video_url);
+            Logger.logD("videourl", "" + rowItems.get(position).getUrl());
+            vh.eventImage.setVideoURI(uri);
+            vh.eventImage.getFitsSystemWindows();
+            mediaC = new MediaController(context);
+            mediaC.setAnchorView(vh.eventImage);
+            vh.eventImage.setMediaController(mediaC);
+        }
+
+        /*switch (position) {
             case 0:
                 //vh.likeincrement.setText(String.valueOf(rowItems.get(position).getLikes()));
-                String video_url = rowItems.get(position).getUrl();/*"http://file2.video9.in/english/movie/2014/x-men-_days_of_future_past/X-Men-%20Days%20of%20Future%20Past%20Trailer%20-%20[Webmusic.IN].3gp";*/
+                String video_url = rowItems.get(position).getUrl();*//*"http://file2.video9.in/english/movie/2014/x-men-_days_of_future_past/X-Men-%20Days%20of%20Future%20Past%20Trailer%20-%20[Webmusic.IN].3gp";*//*
                 Uri uri = Uri.parse(video_url);
                 Logger.logD("videourl", "" + rowItems.get(position).getUrl());
-                vh.eventImage.setVideoURI(uri);
-                vh.eventImage.getFitsSystemWindows();
-                mediaC = new MediaController(context);
-                mediaC.setAnchorView(vh.eventImage);
-                vh.eventImage.setMediaController(mediaC);
+
+               // vh.eventImage.setVideoURI(uri);
+                //vh.eventImage.getFitsSystemWindows();
+               // mediaC = new MediaController(context);
+               // mediaC.setAnchorView(vh.eventImage);
+               // vh.eventImage.setMediaController(mediaC);
                 //vh.eventImage.start();
 
-               /*Picasso.with(context)
-                       .load(R.drawable.ag1)
-                       .placeholder(R.drawable.ag1)
+               Picasso.get()
+                       .load(rowItems.get(position).getUrl())
                        .fit()
-                       .error(R.drawable.ag1)
-                       .into(vh.eventImage);*/
+                       .error(R.drawable.ic_launcher)
+                       .into(vh.imageview_all);
                 break;
             case 1:
                 //vh.likeincrement.setText("2");
                 video_url = rowItems.get(position).getUrl();//"http://file2.video9.in/english/movie/2014/x-men-_days_of_future_past/X-Men-%20Days%20of%20Future%20Past%20Trailer%20-%20[Webmusic.IN].3gp";
                 uri = Uri.parse(video_url);
                 Logger.logD("videourl", "" + rowItems.get(position).getUrl());
-                vh.eventImage.setVideoURI(uri);
-                vh.eventImage.getFitsSystemWindows();
+               // vh.eventImage.setVideoURI(uri);
+               // vh.eventImage.getFitsSystemWindows();
                 mediaC = new MediaController(context);
                 mediaC.setAnchorView(vh.eventImage);
-                vh.eventImage.setMediaController(mediaC);
-               /*Picasso.with(context)
+              //  vh.eventImage.setMediaController(mediaC);
+               *//*Picasso.with(context)
                        .load(R.drawable.ag2)
                        .fit()
                        .placeholder(R.drawable.ag2)
                        .error(R.drawable.ag2)
-                       .into(vh.eventImage);*/
+                       .into(vh.eventImage);*//*
                 break;
             case 2:
                 //vh.likeincrement.setText("5");
@@ -220,16 +255,16 @@ public class EventListingAdapter extends BaseAdapter {
                 mediaC = new MediaController(context);
                 mediaC.setAnchorView(vh.eventImage);
                 vh.eventImage.setMediaController(mediaC);
-               /*Picasso.with(context)
+               *//*Picasso.with(context)
                        .load(R.drawable.ag3)
                        .fit()
                        .placeholder(R.drawable.ag3)
                        .error(R.drawable.ag3)
-                       .into(vh.eventImage);*/
+                       .into(vh.eventImage);*//*
                 break;
             default:
                 break;
-        }
+        }*/
 
         if (rowItems.get(position).getEvent_date() != null) {
             String getDateInToDisplayFormate = getDateFormate(rowItems.get(position).getEvent_date());
@@ -272,5 +307,8 @@ public class EventListingAdapter extends BaseAdapter {
         TextView likeincrement;
         LinearLayout videodisplay;
         ImageView videoimage;
+        ImageView imageview_all;
+        String filetype;
+        ImageView progressBar1;
     }
 }

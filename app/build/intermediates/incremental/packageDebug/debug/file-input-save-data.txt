@@ -1,11 +1,15 @@
 #Internal package file, do not edit.
-#Wed Sep 26 16:13:15 IST 2018
-1.base=D\:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\37
+#Tue Oct 09 18:05:17 IST 2018
+1.base=D\:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\142
+2.path=classes2.dex
 0.baseType=DIRECTORY
+2.base=D\:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\39
+2.set=DEX
 1.baseType=DIRECTORY
-count=2
+count=3
 1.set=DEX
 0.path=classes.dex
 0.set=DEX
-0.base=D\:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\37
-1.path=classes2.dex
+0.base=D\:\\Gitfolder\\ANANDGURUJI_C\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\39
+2.baseType=DIRECTORY
+1.path=classes.dex

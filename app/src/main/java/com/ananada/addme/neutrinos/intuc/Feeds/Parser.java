@@ -298,9 +298,7 @@ public class Parser {
                     eventsObj.setEvents("UPCOMING EVENTS");
                 else
                     eventsObj.setEvents("enable");
-
                 eventsList.add(eventsObj);
-
             } catch (Exception e) {
                 Log.d("", "", e);
             }

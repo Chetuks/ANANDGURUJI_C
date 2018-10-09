@@ -45,6 +45,7 @@ import java.util.List;
 public class LikesActivity extends AppCompatActivity {
     public static final String EVENTBEAN = "userSelectedBean";
     VideoView video;
+    ImageView image;
     String video_url = "http://file2.video9.in/english/movie/2014/x-men-_days_of_future_past/X-Men-%20Days%20of%20Future%20Past%20Trailer%20-%20[Webmusic.IN].3gp";
     ProgressDialog pd;
     EditText cmnt;
@@ -62,25 +63,40 @@ public class LikesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_likes);
         detailsEvent = (Events) getIntent().getSerializableExtra(EVENTBEAN);
-        //Logger.logD("eventcheck",""+detailsEvent);
-        if (detailsEvent.getEvent_id()!=null){
-            uploadid = detailsEvent.getEvent_id();
-            Logger.logD("uplllll",""+uploadid);
-            if (detailsEvent != null && !detailsEvent.getUrl().equals(""))
-                video_url = detailsEvent.getUrl();
-        }else
-            uploadid="";
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        sharedPrefManager = new SharedPrefManager(LikesActivity.this);
-        video = (VideoView) findViewById(R.id.video_view);
         pd = new ProgressDialog(LikesActivity.this);
-        pd.setMessage("Buffering video please wait...");
+        pd.setMessage("Buffering please wait...");
         pd.setCancelable(false);
         pd.show();
+        //Logger.logD("eventcheck",""+detailsEvent);
+        if (detailsEvent.getEvent_id() != null) {
+            video = (VideoView) findViewById(R.id.video_view);
+            image = (ImageView) findViewById(R.id.image_view);
+            uploadid = detailsEvent.getEvent_id();
+            Logger.logD("uplllll", "" + uploadid);
+            String filetype = detailsEvent.getSname();
+            if (filetype.equalsIgnoreCase("image")) {
+                video.setVisibility(View.GONE);
+                image.setVisibility(View.VISIBLE);
+                pd.dismiss();
+                Picasso.get()
+                        .load(detailsEvent.getUrl())
+                        .fit()
+                        .error(R.drawable.ic_launcher)
+                        .into(image);
+            } else {
+                video.setVisibility(View.VISIBLE);
+                image.setVisibility(View.GONE);
+                if (detailsEvent != null && !detailsEvent.getUrl().equals(""))
+                    video_url = detailsEvent.getUrl();
+                Uri uri = Uri.parse(video_url);
+                video.setVideoURI(uri);
+                video.start();
+            }
+        } else
+            uploadid = "";
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        sharedPrefManager = new SharedPrefManager(LikesActivity.this);
 
-        Uri uri = Uri.parse(video_url);
-        video.setVideoURI(uri);
-        video.start();
         mediaC = new MediaController(this);
         mediaC.setAnchorView(video);
         video.setMediaController(mediaC);
@@ -103,10 +119,9 @@ public class LikesActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-
             }
         });
-        macaddress=getDeviceId();
+        macaddress = getDeviceId();
         video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
@@ -115,17 +130,17 @@ public class LikesActivity extends AppCompatActivity {
             }
         });
 
-       likebtn.setOnLikeListener(new OnLikeListener() {
-           @Override
-           public void liked(LikeButton likeButton) {
-               likeTrueapi(macaddress,detailsEvent.getEvent_id(),true,"save");
-           }
+        likebtn.setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+                likeTrueapi(macaddress, detailsEvent.getEvent_id(), true, "save");
+            }
 
-           @Override
-           public void unLiked(LikeButton likeButton) {
-               likeTrueapi(macaddress,detailsEvent.getEvent_id(),false,"save");
-           }
-       });
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                likeTrueapi(macaddress, detailsEvent.getEvent_id(), false, "save");
+            }
+        });
         Date c = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         formattedDate = df.format(c);
@@ -133,7 +148,7 @@ public class LikesActivity extends AppCompatActivity {
     }
 
     private void likestatus() {
-        String url="http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/"+getDeviceId()+"/appuniqueid/20829/uploadid/"+detailsEvent.getEvent_id()+"/-like/status/retrieve";
+        String url = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/" + getDeviceId() + "/appuniqueid/20829/uploadid/" + detailsEvent.getEvent_id() + "/-like/status/retrieve";
         Log.v("theresultoflikestatus", "the result is" + url);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -143,16 +158,15 @@ public class LikesActivity extends AppCompatActivity {
                         // ProgressUtils.CancelProgress(progressDialog);
                         try {
                             Logger.logD("LikestatusResponse", "->" + response);
-                            JSONObject jsonObject=new JSONObject(response);
-                            Logger.logD("statusboolean",""+jsonObject);
-                            Boolean status=jsonObject.getBoolean("Liked");
-                            Logger.logD("getjkshdjk",""+status);
-                            if(status){
+                            JSONObject jsonObject = new JSONObject(response);
+                            Logger.logD("statusboolean", "" + jsonObject);
+                            Boolean status = jsonObject.getBoolean("Liked");
+                            Logger.logD("getjkshdjk", "" + status);
+                            if (status) {
                                 likebtn.setLiked(true);
-                            }else{
+                            } else {
                                 likebtn.setLiked(false);
                             }
-
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -170,8 +184,8 @@ public class LikesActivity extends AppCompatActivity {
     }
 
 
-    private void likeTrueapi(String macaddress,String uploadid,boolean liked,String status) {
-        String url="http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/"+macaddress+"/appuniqueid/20829/uploadid/"+uploadid+"/like/"+liked+"/status/"+status;
+    private void likeTrueapi(String macaddress, String uploadid, boolean liked, String status) {
+        String url = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.likes/Store-retrieve-likes/macaddress/" + macaddress + "/appuniqueid/20829/uploadid/" + uploadid + "/like/" + liked + "/status/" + status;
         Log.v("the result of like", "the result is" + url);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -243,7 +257,7 @@ public class LikesActivity extends AppCompatActivity {
                                 callApiForCommentList(detailsEvent);
                             } else {
                                 // TODO
-                                Toast.makeText(LikesActivity.this,"No response from server",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LikesActivity.this, "No response from server", Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -266,7 +280,7 @@ public class LikesActivity extends AppCompatActivity {
 
     private void callServerForCommentListApi(int userId, String eventid) {
         String URL = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.comments/Store-comments/-comment/userid/" + userId + "/uploadid/" + eventid + "/-createddate/status/retrieve";
-        Log.v("the result is", "the result is" + URL);
+        Log.v("comment", "result" + URL);
         StringRequest postRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
 
@@ -274,7 +288,7 @@ public class LikesActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         // ProgressUtils.CancelProgress(progressDialog);
                         try {
-                            Logger.logD("COMMENT Response list", "->" + response);
+                            Logger.logD("commentResponse", "->" + response);
                             parceAndSetCommentAdapter(response);
 
                         } catch (Exception e) {
@@ -367,6 +381,7 @@ public class LikesActivity extends AppCompatActivity {
         return Settings.Secure.getString(getContentResolver(),
                 Settings.Secure.ANDROID_ID);
     }
+
     private void setDataToAdapter(MemberDetails memberDetails, LinearLayout commentsChatDynamicLayout) {
 
         commentsChatDynamicLayout.setVisibility(View.VISIBLE);
@@ -403,7 +418,7 @@ public class LikesActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         } else if (id == android.R.id.home) {
-            Intent intent=new Intent(this,CommentsActivity.class);
+            Intent intent = new Intent(this, CommentsActivity.class);
             startActivity(intent);
             finish();
             return true;

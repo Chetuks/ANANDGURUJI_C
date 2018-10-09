@@ -3,9 +3,11 @@ package com.ananada.addme.neutrinos.intuc;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.provider.Settings;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -36,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class CommentNew extends AppCompatActivity {
     EditText cmnt;
@@ -43,17 +46,20 @@ public class CommentNew extends AppCompatActivity {
     String formattedDate;
     String macaddress;
     int userid;
-    String uploadid;
+    int uploadid;
     public Events detailsEvent;
+    private ActionBar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_new);
+        //toolbar.setTitle("Comment");
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
         assert bundle != null;
-        uploadid = bundle.getString("uploadid");
+        uploadid = bundle.getInt("uploadid");
         userid = bundle.getInt("userid");
         Logger.logD("userid", "" + userid);
         Logger.logD("uploadid", "" + uploadid);
@@ -144,7 +150,7 @@ public class CommentNew extends AppCompatActivity {
         Volley.newRequestQueue(CommentNew.this).add(postRequest);
     }
 
-    private void callServerForCommentListApi(int userId, String eventid) {
+    private void callServerForCommentListApi(int userId, int eventid) {
         String URL = "http://216.98.9.235:8180/api/jsonws/addMe-portlet.comments/Store-comments/-comment/userid/" + userId + "/uploadid/" + eventid + "/-createddate/status/retrieve";
         Log.v("comment", "result" + URL);
         StringRequest postRequest = new StringRequest(Request.Method.POST, URL,
@@ -242,4 +248,19 @@ public class CommentNew extends AppCompatActivity {
         cmnt = findViewById(R.id.cmnt_txt);
         submit = findViewById(R.id.submit_btn);
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        } else if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

@@ -142,7 +142,6 @@
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-wallet-11.8.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-awareness-11.8.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design-27.1.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation-1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-config-11.8.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-location-11.8.0" level="project" />
@@ -201,7 +200,6 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-connection-license-11.8.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-27.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:multidex-1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-dynamic-links-11.8.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-iid-11.8.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-27.1.1" level="project" />

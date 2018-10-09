@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".NearbyActivity">
 
-   <!-- <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@drawable/progress_shape"
-        android:indeterminateDrawable="@drawable/custom_progress_background"
-        android:visibility="visible" />-->
+    <!-- <ProgressBar
+         android:id="@+id/progressBar1"
+         style="?android:attr/progressBarStyle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_centerInParent="true"
+         android:background="@drawable/progress_shape"
+         android:indeterminateDrawable="@drawable/custom_progress_background"
+         android:visibility="visible" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,11 +58,57 @@
             android:layout_weight="1.8">
 
             <LinearLayout
-                android:id="@+id/inflator_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="vertical" />
+                android:orientation="vertical">
+                <!--  <LinearLayout
+                      android:id="@+id/inflator_layout"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="5dp"
+                      android:orientation="vertical" />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:textSize="18sp"
+                    android:text="1. Commitee meeting will be held by our President tomorrow" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="2. All hands meet" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="3. Election process general body meeting" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="4.Public voice  " />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="5. All hands meet called by President " />
+            </LinearLayout>
         </ScrollView>
     </LinearLayout>
 </RelativeLayout>

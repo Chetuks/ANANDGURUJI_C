@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="21"
         android:targetSdkVersion="27" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -49,14 +49,12 @@
         android:required="true" />
 
     <application
-        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@mipmap/icon_app"
         android:label="@string/app_name"
         android:roundIcon="@drawable/intuclogo"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.ananada.addme.neutrinos.intuc.SplashScreen"
@@ -172,10 +170,13 @@
         </service>
 
         <activity android:name="com.ananada.addme.neutrinos.intuc.NearMeListActivity" />
-        <activity android:name="com.ananada.addme.neutrinos.intuc.LikesActivity" />
+        <activity
+            android:name="com.ananada.addme.neutrinos.intuc.LikesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name="com.ananada.addme.neutrinos.intuc.Main2Activity"
             android:label="@string/title_activity_main2" />
+        <activity android:name="com.ananada.addme.neutrinos.intuc.CommentNew" />
         <!--
              FirebaseMessagingService performs security checks at runtime,
              no need for explicit permissions despite exported="true"

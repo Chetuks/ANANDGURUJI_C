@@ -150,10 +150,12 @@
         </service>
 
         <activity android:name=".NearMeListActivity" />
-        <activity android:name=".LikesActivity" />
+        <activity android:name=".LikesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2" />
+        <activity android:name=".CommentNew"></activity>
     </application>
 
 </manifest>

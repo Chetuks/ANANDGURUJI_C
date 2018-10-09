@@ -1,15 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
-INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
-INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
-INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
+ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
+INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
+INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
+INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\a88aa23f086efd511ad611c9e996d132\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services:11.8.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\play-services-11.8.0.aar\90ccbbd7e2b9898ecbb9e5782e0e1427\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-messaging:11.8.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\firebase-messaging-11.8.0.aar\bc1cca68d892cef816405011b390c522\AndroidManifest.xml:17:1-37:12
 MERGED from [com.android.volley:volley:1.0.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\volley-1.0.0.aar\e42ca6d164564126b6007afd44d7f69b\AndroidManifest.xml:2:1-11:12
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\2874bc381c5aacbefdcaf03817d06268\AndroidManifest.xml:2:1-14:12
-MERGED from [com.android.support:multidex:1.0.2] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\5ad2abc07d5dc1990ca1f0b00a4c0e44\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\4cb983fc85f1bfd5aa368e0d2e03fb4f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.jd-alexander:LikeButton:0.2.3] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\LikeButton-0.2.3.aar\cd4306c2c69dabf350004dd9ad3d68bc\AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.android.gms:play-services-cast-framework:11.8.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-11.8.0.aar\7a6a2c68d12e8eceae0bb7abd9217c74\AndroidManifest.xml:2:1-14:12
@@ -133,20 +132,20 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Chethan\.gradle\cach
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\a6ec5ec308110fb18280dc05cae47eee\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d5d208a984a9bddf8afb111ec389d135\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\cf3fe68c4ade0c58d62fac6e7c426798\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
-INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
-INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
+INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
+INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
+INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
 	package
 		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:3:5-48
 		INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml
-		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
+		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
 		INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml
-		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-159:12
+		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:1-161:12
 		INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:2:11-69
@@ -279,7 +278,7 @@ ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:30:5-89
 	android:name
 		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:30:22-86
 application
-ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:32:5-157:19
+ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:32:5-159:19
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\a88aa23f086efd511ad611c9e996d132\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-core:11.8.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\firebase-core-11.8.0.aar\a88aa23f086efd511ad611c9e996d132\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services:11.8.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\play-services-11.8.0.aar\90ccbbd7e2b9898ecbb9e5782e0e1427\AndroidManifest.xml:5:5-20
@@ -661,15 +660,21 @@ ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:152:9-56
 	android:name
 		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:152:19-53
 activity#com.ananada.addme.neutrinos.intuc.LikesActivity
-ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:153:9-51
+ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:153:9-154:62
+	android:windowSoftInputMode
+		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:154:13-60
 	android:name
 		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:153:19-48
 activity#com.ananada.addme.neutrinos.intuc.Main2Activity
-ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:154:9-156:60
+ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:155:9-157:60
 	android:label
-		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:156:13-57
+		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:157:13-57
 	android:name
-		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:155:13-42
+		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:156:13-42
+activity#com.ananada.addme.neutrinos.intuc.CommentNew
+ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:158:9-57
+	android:name
+		ADDED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml:158:19-45
 uses-sdk
 INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Gitfolder\ANANDGURUJI_C\app\src\main\AndroidManifest.xml
@@ -684,8 +689,6 @@ MERGED from [com.android.volley:volley:1.0.0] C:\Users\Chethan\.gradle\caches\tr
 MERGED from [com.android.volley:volley:1.0.0] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\volley-1.0.0.aar\e42ca6d164564126b6007afd44d7f69b\AndroidManifest.xml:7:5-43
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\2874bc381c5aacbefdcaf03817d06268\AndroidManifest.xml:5:5-44
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\2874bc381c5aacbefdcaf03817d06268\AndroidManifest.xml:5:5-44
-MERGED from [com.android.support:multidex:1.0.2] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\5ad2abc07d5dc1990ca1f0b00a4c0e44\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.2] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\5ad2abc07d5dc1990ca1f0b00a4c0e44\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:design:27.1.1] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\4cb983fc85f1bfd5aa368e0d2e03fb4f\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:27.1.1] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\4cb983fc85f1bfd5aa368e0d2e03fb4f\AndroidManifest.xml:20:5-44
 MERGED from [com.github.jd-alexander:LikeButton:0.2.3] C:\Users\Chethan\.gradle\caches\transforms-1\files-1.1\LikeButton-0.2.3.aar\cd4306c2c69dabf350004dd9ad3d68bc\AndroidManifest.xml:7:5-9:41

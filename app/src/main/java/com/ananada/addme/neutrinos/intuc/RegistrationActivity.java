@@ -275,7 +275,7 @@ public class RegistrationActivity extends AppCompatActivity implements GoogleApi
                                 prefManager.saveIsLoggedIn(context, true);
                                 prefManager.saveLanguage(context, getLanguage());
                                 prefManager.saveName(context,response);
-                                Intent intent = new Intent(activity, DashBoardActivity.class);
+                                Intent intent = new Intent(activity, Main2Activity.class);
                                 startActivity(intent);
                                 finish();
                             }
